@@ -1,0 +1,170 @@
+.profile-page {
+  --background: #0b4ca3;
+}
+
+.header {
+  height: 90px;
+  background: #0b4ca3;
+  position: relative;
+}
+
+.header h1 {
+  color: white;
+  text-align: center;
+  padding-top: 48px;
+  margin: 0;
+  font-size: 18px;
+  font-weight: 500;
+}
+
+.back-icon {
+  position: absolute;
+  left: 26px;
+  top: 44px;
+  font-size: 32px;
+  color: white;
+}
+
+.content-box {
+  background: #f7f7f7;
+  min-height: calc(100vh - 90px);
+  padding: 20px;
+  border-top-left-radius: 24px;
+  border-top-right-radius: 24px;
+  border-bottom: 18px solid #0b4ca3;
+}
+
+.user-card {
+  background: white;
+  border-radius: 16px;
+  padding: 18px;
+  display: grid;
+  grid-template-columns: 110px 1fr;
+  align-items: center;
+  gap: 16px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.18);
+  margin-bottom: 26px;
+}
+
+.avatar-box {
+  width: 105px;
+  height: 105px;
+  border-radius: 50%;
+  background: #e1d0ff;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.avatar-person {
+  font-size: 60px;
+  color: #b8a0e8;
+}
+
+.foto-perfil {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.avatar-box p {
+  position: absolute;
+  bottom: 8px;
+  width: 100%;
+  text-align: center;
+  margin: 0;
+  font-size: 10px;
+  font-weight: 600;
+  color: #6d58d9;
+}
+
+.camera-circle {
+  position: absolute;
+  right: -4px;
+  bottom: 32px;
+  width: 34px;
+  height: 34px;
+  background: #0b4ca3;
+  border-radius: 50%;
+  border: 4px solid white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.camera-circle ion-icon {
+  font-size: 18px;
+  color: white;
+}
+
+.user-info {
+  min-width: 0;
+}
+
+.user-info h2 {
+  margin: 0;
+  font-size: 14px;
+  font-weight: 900;
+  color: black;
+}
+
+.user-info h3 {
+  margin: 4px 0 10px;
+  font-size: 12px;
+  font-weight: 700;
+  color: black;
+}
+
+.user-info span {
+  display: inline-block;
+  background: #0b4ca3;
+  color: white;
+  padding: 7px 30px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.menu-card {
+  background: white;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.13);
+}
+
+.menu-item {
+  height: 62px;
+  display: grid;
+  grid-template-columns: 40px 1fr 24px;
+  align-items: center;
+  padding: 0 18px;
+  border-bottom: 1px solid #ececec;
+}
+
+.menu-item:last-child {
+  border-bottom: none;
+}
+
+.menu-icon {
+  font-size: 28px;
+  color: #0b4ca3;
+}
+
+.menu-item p {
+  margin: 0;
+  font-size: 14px;
+  font-weight: 700;
+  color: black;
+}
+
+.arrow {
+  font-size: 22px;
+  color: #999;
+}
+
+.logout .menu-icon,
+.logout p {
+  color: red;
+}

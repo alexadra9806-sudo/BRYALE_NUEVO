@@ -1,0 +1,76 @@
+<ion-content class="producto-page">
+
+  <div class="header">
+    <ion-icon name="arrow-back-outline" (click)="volverPanel()"></ion-icon>
+    <h2>Nuevo Producto</h2>
+    <div class="empty"></div>
+  </div>
+
+  <div class="form-container">
+
+    <div class="upload-box">
+      <div *ngIf="imagenProducto" class="preview-container">
+        <img [src]="imagenProducto" class="preview-img" alt="Producto">
+        <button class="remove-img-btn" type="button" (click)="eliminarImagen()">✕</button>
+      </div>
+
+      <ion-icon *ngIf="!imagenProducto" name="image-outline" class="image-icon"></ion-icon>
+
+      <div class="upload-text">
+        <p>Selecciona una imagen desde tu dispositivo</p>
+
+        <label class="upload-btn">
+          <ion-icon name="cloud-upload-outline"></ion-icon>
+          Seleccionar imagen
+          <input type="file" hidden accept="image/*" (change)="seleccionarImagen($event)">
+        </label>
+      </div>
+    </div>
+
+    <div class="input-box">
+      <ion-icon name="reader-outline"></ion-icon>
+      <input type="text" placeholder="Nombre del Producto" [(ngModel)]="nombreProducto">
+    </div>
+
+    <div class="input-box">
+      <ion-icon name="scan-outline"></ion-icon>
+      <input type="text" placeholder="Código del producto" [(ngModel)]="codigoProducto">
+    </div>
+
+    <div class="input-box">
+      <ion-icon name="cash-outline"></ion-icon>
+      <input type="number" placeholder="Precio" [(ngModel)]="precio">
+    </div>
+
+    <div class="input-box">
+      <ion-icon name="document-attach-outline"></ion-icon>
+      <input type="number" placeholder="Cantidad" [(ngModel)]="cantidad">
+    </div>
+
+    <div class="input-box">
+      <ion-icon name="grid-outline"></ion-icon>
+
+      <ion-select placeholder="Categoría" [(ngModel)]="categoria" interface="popover">
+        <ion-select-option value="Cuadernos">Cuadernos</ion-select-option>
+        <ion-select-option value="Escritura">Escritura</ion-select-option>
+        <ion-select-option value="Papelería">Papelería</ion-select-option>
+        <ion-select-option value="Arte y manualidades">Arte y manualidades</ion-select-option>
+        <ion-select-option value="Oficina">Oficina</ion-select-option>
+      </ion-select>
+    </div>
+
+    <div class="input-box description">
+      <ion-icon name="create-outline"></ion-icon>
+      <textarea placeholder="Descripción (opcional)" [(ngModel)]="descripcion"></textarea>
+    </div>
+
+    <p class="error" *ngIf="mensajeError">{{ mensajeError }}</p>
+
+    <button class="save-btn" type="button" (click)="guardarProducto()">
+      <ion-icon name="save-outline"></ion-icon>
+      Guardar Producto
+    </button>
+
+  </div>
+
+</ion-content>

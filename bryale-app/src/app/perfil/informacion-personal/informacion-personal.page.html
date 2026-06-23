@@ -1,0 +1,128 @@
+<ion-content class="info-page">
+
+  <div class="header">
+    <ion-icon
+      name="arrow-back-outline"
+      class="back-icon"
+      (click)="regresar()">
+    </ion-icon>
+
+    <h1>INFORMACIÓN PERSONAL</h1>
+  </div>
+
+  <div class="content-box">
+
+    <div class="profile-card">
+      <div class="avatar">
+        <ion-icon name="person-outline"></ion-icon>
+      </div>
+
+      <h2>{{ usuario.nombre }}</h2>
+      <p>Cuenta principal del sistema</p>
+    </div>
+
+    <div class="data-card">
+
+      <!-- Nombre -->
+      <div class="data-item">
+        <ion-icon name="person-outline"></ion-icon>
+        <div>
+          <span>Nombre completo</span>
+
+          <ion-input
+            *ngIf="editando"
+            [(ngModel)]="usuario.nombre"
+            class="edit-input">
+          </ion-input>
+
+          <p *ngIf="!editando">
+            {{ usuario.nombre }}
+          </p>
+        </div>
+      </div>
+
+      <!-- Correo -->
+      <div class="data-item">
+        <ion-icon name="mail-outline"></ion-icon>
+        <div>
+          <span>Correo electrónico</span>
+
+          <ion-input
+            *ngIf="editando"
+            [(ngModel)]="usuario.correo"
+            class="edit-input">
+          </ion-input>
+
+          <p *ngIf="!editando">
+            {{ usuario.correo }}
+          </p>
+        </div>
+      </div>
+
+      <!-- Teléfono -->
+      <div class="data-item">
+        <ion-icon name="call-outline"></ion-icon>
+        <div>
+          <span>Teléfono</span>
+
+          <ion-input
+            *ngIf="editando"
+            [(ngModel)]="usuario.telefono"
+            class="edit-input">
+          </ion-input>
+
+          <p *ngIf="!editando">
+            {{ usuario.telefono }}
+          </p>
+        </div>
+      </div>
+
+      <!-- Cargo -->
+      <div class="data-item">
+        <ion-icon name="briefcase-outline"></ion-icon>
+        <div>
+          <span>Cargo</span>
+
+          <ion-input
+            *ngIf="editando"
+            [(ngModel)]="usuario.cargo"
+            class="edit-input">
+          </ion-input>
+
+          <p *ngIf="!editando">
+            {{ usuario.cargo }}
+          </p>
+        </div>
+      </div>
+
+      <!-- Dirección -->
+      <div class="data-item">
+        <ion-icon name="location-outline"></ion-icon>
+        <div>
+          <span>Dirección</span>
+
+          <ion-input
+            *ngIf="editando"
+            [(ngModel)]="usuario.direccion"
+            class="edit-input">
+          </ion-input>
+
+          <p *ngIf="!editando">
+            {{ usuario.direccion }}
+          </p>
+        </div>
+      </div>
+
+    </div>
+
+    <button
+      class="edit-btn"
+      (click)="editarInformacion()">
+
+      {{ editando ? 'Guardar Cambios' : 'Editar Información' }}
+
+    </button>
+
+  </div>
+
+</ion-content>

@@ -1,0 +1,134 @@
+<ion-content class="panel-page">
+
+  <div class="top-header">
+
+    <ion-icon
+      name="menu-outline"
+      class="header-icon"
+      (click)="abrirMenu()">
+    </ion-icon>
+
+    <div class="welcome-box">
+      <p>Hola, Administrador</p>
+      <span>Bienvenido a BRYALE</span>
+    </div>
+
+    <div class="notification-box" (click)="verNotificaciones()">
+      <ion-icon name="notifications-outline" class="header-icon"></ion-icon>
+
+      <div
+        class="notification-dot"
+        *ngIf="alertasStock.length > 0">
+      </div>
+    </div>
+
+  </div>
+
+  <div class="content-box">
+
+    <div class="quick-summary">
+
+      <h3>Resumen rápido</h3>
+
+      <div class="summary-grid">
+
+        <div>
+          <span>Productos</span>
+          <strong>{{ totalProductos }}</strong>
+        </div>
+
+        <div>
+          <span>Stock bajo</span>
+          <strong>{{ alertasStock.length }}</strong>
+        </div>
+
+        <div>
+          <span>Ventas hoy</span>
+          <strong>{{ ventasHoy }}</strong>
+        </div>
+
+      </div>
+
+    </div>
+
+    <h2>PANEL DE LA BODEGA “BRYALE”</h2>
+
+    <div class="grid">
+
+      <div class="option purple" (click)="irInventario()">
+        <ion-icon name="cube-outline"></ion-icon>
+        <p>Inventario</p>
+        <span>{{ totalProductos }} productos</span>
+      </div>
+
+      <div class="option green" (click)="irVenta()">
+        <ion-icon name="cart-outline"></ion-icon>
+        <p>Ventas</p>
+        <span>{{ ventasHoy }} hoy</span>
+      </div>
+
+      <div class="option violet" (click)="irProducto()">
+        <ion-icon name="add-circle-outline"></ion-icon>
+        <p>Registrar<br>producto</p>
+        <span>Nuevo registro</span>
+      </div>
+
+      <div class="option orange" (click)="irReportes()">
+        <ion-icon name="bar-chart-outline"></ion-icon>
+        <p>Reportes</p>
+        <span>Ver resumen</span>
+      </div>
+
+      <div class="option yellow" (click)="irCategorias()">
+        <ion-icon name="folder-outline"></ion-icon>
+        <p>Categorías</p>
+        <span>{{ totalCategorias }} categorías</span>
+      </div>
+
+      <div class="option aqua" (click)="irPerfil()">
+        <ion-icon name="person-circle-outline"></ion-icon>
+        <p>Perfil</p>
+        <span>Mi cuenta</span>
+      </div>
+
+    </div>
+
+  </div>
+
+  <div
+    class="overlay"
+    *ngIf="menuAbierto || notificacionesAbiertas"
+    (click)="cerrarVentanas()">
+  </div>
+
+  <div class="side-menu" *ngIf="menuAbierto">
+
+    <h3>Menú rápido</h3>
+
+    <button (click)="irPerfil()">Perfil</button>
+    <button (click)="irReportes()">Reportes</button>
+    <button (click)="irCategorias()">Categorías</button>
+    <button (click)="cerrarSesion()">Cerrar sesión</button>
+
+  </div>
+
+  <div class="notification-panel" *ngIf="notificacionesAbiertas">
+
+    <h3>Notificaciones</h3>
+
+    <div *ngIf="alertasStock.length === 0" class="empty-alert">
+      No hay alertas de stock.
+    </div>
+
+    <div
+      class="alert-item"
+      *ngFor="let alerta of alertasStock">
+
+      <strong>{{ alerta.nombre }}</strong>
+      <p>Stock actual: {{ alerta.stock }}</p>
+
+    </div>
+
+  </div>
+
+</ion-content>

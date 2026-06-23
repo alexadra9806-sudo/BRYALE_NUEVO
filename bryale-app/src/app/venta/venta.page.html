@@ -1,0 +1,105 @@
+<ion-content class="venta-page">
+
+  <div class="header">
+    <div class="back" (click)="volverPanel()">‹</div>
+    <h1>{{ mostrarRegistro ? 'REGISTRO DE VENTAS' : 'NUEVA VENTA' }}</h1>
+  </div>
+
+  <div class="content-box" *ngIf="!mostrarRegistro">
+
+    <input
+      class="search"
+      type="text"
+      placeholder="Buscar producto..."
+      [(ngModel)]="buscar">
+
+    <div class="resultados" *ngIf="productosDisponibles.length > 0">
+      <div
+        class="producto-item"
+        *ngFor="let producto of productosDisponibles"
+        (click)="agregarProducto(producto)">
+        <strong>{{ producto.nombre }}</strong>
+        <span>Stock: {{ producto.cantidad }} | S/ {{ producto.precio }}</span>
+      </div>
+    </div>
+
+    <h3>Carrito</h3>
+
+    <div class="empty" *ngIf="carrito.length === 0">
+      No hay productos agregados.
+    </div>
+
+    <div class="carrito-item" *ngFor="let item of carrito; let i = index">
+      <div>
+        <strong>{{ item.nombre }}</strong>
+        <p>S/ {{ item.precio }} x {{ item.cantidadVenta }}</p>
+      </div>
+
+      <div class="acciones">
+        <button (click)="disminuirCantidad(item)">-</button>
+        <span>{{ item.cantidadVenta }}</span>
+        <button (click)="aumentarCantidad(item)">+</button>
+        <button (click)="eliminarProducto(i)">x</button>
+      </div>
+    </div>
+
+    <div class="pago-box">
+      <label>Método de pago</label>
+      <select [(ngModel)]="metodoPago">
+        <option value="efectivo">Efectivo</option>
+        <option value="yape">Yape</option>
+      </select>
+
+      <label>Descuento</label>
+      <input type="number" [(ngModel)]="descuento">
+
+      <label *ngIf="metodoPago === 'efectivo'">Monto recibido</label>
+      <input
+        *ngIf="metodoPago === 'efectivo'"
+        type="number"
+        [(ngModel)]="montoRecibido">
+
+      <h3>Subtotal: S/ {{ subtotal | number:'1.2-2' }}</h3>
+      <h2>Total: S/ {{ total | number:'1.2-2' }}</h2>
+
+      <h3 *ngIf="metodoPago === 'efectivo'">
+        Vuelto: S/ {{ vuelto | number:'1.2-2' }}
+      </h3>
+    </div>
+
+    <button class="btn-confirmar" (click)="confirmarVenta()">
+      Guardar venta
+    </button>
+
+    <button class="btn-secundario" (click)="abrirRegistro()">
+      Ver registro de ventas
+    </button>
+
+  </div>
+
+  <div class="content-box" *ngIf="mostrarRegistro">
+
+    <button class="btn-secundario" (click)="irReportes()">
+      Ir a reportes
+    </button>
+
+    <div class="empty" *ngIf="ventas.length === 0">
+      Aún no hay ventas registradas.
+    </div>
+
+    <div class="venta-card" *ngFor="let venta of ventas.slice().reverse()">
+      <h3>Venta #{{ venta.id }}</h3>
+      <p><strong>Fecha:</strong> {{ venta.fechaMostrar }}</p>
+      <p><strong>Hora:</strong> {{ venta.horaMostrar }}</p>
+      <p><strong>Pago:</strong> {{ venta.metodoPago }}</p>
+
+      <div *ngFor="let p of venta.productos">
+        {{ p.nombre }} - {{ p.cantidadVenta }} und. - S/ {{ p.precio }}
+      </div>
+
+      <h2>Total: S/ {{ venta.total | number:'1.2-2' }}</h2>
+    </div>
+
+  </div>
+
+</ion-content>

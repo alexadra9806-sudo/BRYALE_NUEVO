@@ -1,0 +1,61 @@
+<ion-content class="login-page">
+
+  <div class="top-bar"></div>
+
+  <div class="login-container">
+
+    <img
+      src="assets/LoginLogo.pnj.jpeg"
+      alt="BRYALE"
+      class="logo">
+
+    <div class="input-box">
+      <ion-icon name="person-circle-outline"></ion-icon>
+
+      <input
+        type="text"
+        placeholder="Usuario"
+        [(ngModel)]="usuario">
+    </div>
+
+    <div class="input-box">
+      <ion-icon name="lock-closed-outline"></ion-icon>
+
+      <input
+        [type]="mostrarContrasena ? 'text' : 'password'"
+        placeholder="Contraseña"
+        [(ngModel)]="password">
+
+      <ion-icon
+        name="eye-outline"
+        class="eye-icon"
+        (click)="togglePassword()">
+      </ion-icon>
+    </div>
+
+    <p class="error" *ngIf="mensajeError">
+      {{ mensajeError }}
+    </p>
+
+    <div class="options">
+      <label>
+        <input type="checkbox" [(ngModel)]="recordar">
+        Recordarme
+      </label>
+
+      <a href="#">
+        ¿Olvidaste tu contraseña?
+      </a>
+    </div>
+
+    <button
+      class="login-btn"
+      (click)="login()">
+      Iniciar Sesión
+    </button>
+
+  </div>
+
+  <div class="bottom-bar"></div>
+
+</ion-content>

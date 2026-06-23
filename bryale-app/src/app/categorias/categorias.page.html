@@ -1,0 +1,98 @@
+<ion-content class="categorias-page">
+
+  <div class="header">
+    <div class="back" (click)="volver()">‹</div>
+    <h1>{{ categoriaSeleccionada ? categoriaSeleccionada : 'CATEGORÍAS' }}</h1>
+  </div>
+
+  <div class="content-box" *ngIf="!categoriaSeleccionada">
+
+    <div class="summary-card">
+      <span>Total Categorías</span>
+      <h3>{{ categorias.length }}</h3>
+    </div>
+
+    <div class="categories-card">
+      <div class="item" *ngFor="let cat of categorias" (click)="abrirCategoria(cat.nombre)">
+        <div class="folder"></div>
+
+        <div class="info">
+          <h2>{{ cat.nombre }}</h2>
+          <p>{{ cat.productos }} producto{{ cat.productos === 1 ? '' : 's' }}</p>
+        </div>
+
+        <div class="chevron">›</div>
+      </div>
+    </div>
+
+    <button class="add-btn" type="button" (click)="nuevaCategoria()">
+      Nueva Categoría
+    </button>
+
+  </div>
+
+  <div class="content-box" *ngIf="categoriaSeleccionada">
+
+    <div class="summary-card">
+      <span>Productos registrados</span>
+      <h3>{{ productosCategoria.length }}</h3>
+    </div>
+
+    <div class="products-card" *ngIf="productosCategoria.length > 0">
+
+      <div class="product-item" *ngFor="let producto of productosCategoria" (click)="verProducto(producto)">
+
+        <img *ngIf="producto.imagen" [src]="producto.imagen" class="product-img" alt="Producto">
+
+        <div class="product-placeholder" *ngIf="!producto.imagen">
+          📦
+        </div>
+
+        <div class="product-info">
+          <h2>{{ producto.nombre }}</h2>
+          <p>Stock: {{ producto.cantidad }}</p>
+        </div>
+
+        <span class="stock-alert" *ngIf="producto.cantidad <= 5">
+          Reponer
+        </span>
+
+      </div>
+
+    </div>
+
+    <div class="empty-products" *ngIf="productosCategoria.length === 0">
+      No hay productos registrados en esta categoría.
+    </div>
+
+  </div>
+
+  <div class="modal-bg" *ngIf="productoSeleccionado">
+    <div class="modal-card">
+
+      <h2>{{ productoSeleccionado.nombre }}</h2>
+      <p class="modal-subtitle">Información del producto</p>
+
+      <div class="modal-info">
+        <p><strong>Código:</strong> {{ productoSeleccionado.codigo }}</p>
+        <p><strong>Categoría:</strong> {{ productoSeleccionado.categoria }}</p>
+        <p><strong>Precio:</strong> S/ {{ productoSeleccionado.precio }}</p>
+        <p><strong>Stock:</strong> {{ productoSeleccionado.cantidad }}</p>
+        <p>
+          <strong>Estado:</strong>
+          {{ productoSeleccionado.cantidad <= 5 ? 'Reponer Stock' : 'Disponible' }}
+        </p>
+        <p>
+          <strong>Descripción:</strong>
+          {{ productoSeleccionado.descripcion || 'Sin descripción' }}
+        </p>
+      </div>
+
+      <button class="modal-btn" type="button" (click)="cerrarProducto()">
+        Cerrar
+      </button>
+
+    </div>
+  </div>
+
+</ion-content>

@@ -1,0 +1,285 @@
+.panel-page {
+  --background: #0b4ca3;
+}
+
+.top-header {
+  height: 120px;
+  background: #0b4ca3;
+  color: white;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  padding: 30px 24px 0;
+}
+
+.header-icon {
+  font-size: 28px;
+}
+
+.welcome-box {
+  flex: 1;
+  padding: 0 18px;
+}
+
+.welcome-box p {
+  margin: 0;
+  font-size: 15px;
+  font-weight: 800;
+}
+
+.welcome-box span {
+  font-size: 13px;
+  opacity: 0.9;
+}
+
+.notification-box {
+  position: relative;
+}
+
+.notification-dot {
+  position: absolute;
+  top: -2px;
+  right: -2px;
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: #ff3b30;
+  border: 2px solid white;
+}
+
+.content-box {
+  background: #f7f7f7;
+  min-height: calc(100vh - 120px);
+  padding: 20px;
+  border-top-left-radius: 24px;
+  border-top-right-radius: 24px;
+  border-bottom: 18px solid #0b4ca3;
+}
+
+.quick-summary {
+  background: white;
+  border-radius: 16px;
+  padding: 18px;
+  margin-bottom: 20px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+}
+
+.quick-summary h3 {
+  margin: 0 0 14px;
+  color: #0b4ca3;
+  font-size: 15px;
+  font-weight: 800;
+}
+
+.summary-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 10px;
+}
+
+.summary-grid div {
+  background: #f2f2f2;
+  border-radius: 14px;
+  padding: 12px 8px;
+  text-align: center;
+}
+
+.summary-grid span {
+  display: block;
+  font-size: 11px;
+  color: #666;
+  font-weight: 700;
+}
+
+.summary-grid strong {
+  display: block;
+  margin-top: 5px;
+  color: #0b4ca3;
+  font-size: 18px;
+  font-weight: 900;
+}
+
+.content-box h2 {
+  text-align: center;
+  color: #0b4ca3;
+  font-size: 18px;
+  font-weight: 700;
+  margin: 4px 0 22px;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 18px 14px;
+}
+
+.option {
+  min-height: 128px;
+  border-radius: 18px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  text-align: center;
+  padding: 14px;
+
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.10);
+}
+
+.option ion-icon {
+  font-size: 46px;
+  margin-bottom: 8px;
+}
+
+.option p {
+  margin: 0;
+  font-size: 17px;
+  color: #222;
+  font-weight: 700;
+}
+
+.option span {
+  margin-top: 6px;
+  font-size: 11px;
+  color: rgba(0, 0, 0, 0.65);
+  font-weight: 700;
+}
+
+.purple {
+  background: #b383d8;
+}
+
+.purple ion-icon {
+  color: #6d3f9d;
+}
+
+.green {
+  background: #8bd893;
+}
+
+.green ion-icon {
+  color: #1f6e39;
+}
+
+.violet {
+  background: #ab87f3;
+}
+
+.violet ion-icon {
+  color: #7ec8ff;
+}
+
+.orange {
+  background: #f7ba76;
+}
+
+.orange ion-icon {
+  color: #c57b1c;
+}
+
+.yellow {
+  background: #e8ee7d;
+}
+
+.yellow ion-icon {
+  color: #ffc400;
+}
+
+.aqua {
+  background: #72e6dc;
+}
+
+.aqua ion-icon {
+  color: #00a6f0;
+}
+
+.overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.25);
+  z-index: 10;
+}
+
+.side-menu {
+  position: fixed;
+  top: 0;
+  left: 0;
+
+  width: 255px;
+  height: 100vh;
+
+  background: white;
+  z-index: 11;
+
+  padding: 35px 20px;
+  box-shadow: 4px 0 15px rgba(0, 0, 0, 0.20);
+}
+
+.side-menu h3,
+.notification-panel h3 {
+  margin: 0 0 18px;
+  color: #0b4ca3;
+  font-size: 17px;
+  font-weight: 900;
+}
+
+.side-menu button {
+  width: 100%;
+  height: 45px;
+  border: none;
+  border-radius: 14px;
+  background: #f2f2f2;
+  color: #333;
+  font-size: 14px;
+  font-weight: 800;
+  margin-bottom: 12px;
+  text-align: left;
+  padding-left: 16px;
+}
+
+.notification-panel {
+  position: fixed;
+  top: 90px;
+  right: 18px;
+
+  width: 280px;
+  max-height: 380px;
+  overflow-y: auto;
+
+  background: white;
+  z-index: 11;
+
+  padding: 18px;
+  border-radius: 18px;
+  box-shadow: 0 5px 16px rgba(0, 0, 0, 0.22);
+}
+
+.alert-item {
+  background: #fff4d6;
+  border-radius: 14px;
+  padding: 12px;
+  margin-bottom: 10px;
+}
+
+.alert-item strong {
+  color: #333;
+  font-size: 14px;
+}
+
+.alert-item p {
+  margin: 5px 0 0;
+  color: #d49100;
+  font-size: 13px;
+  font-weight: 800;
+}
+
+.empty-alert {
+  color: #777;
+  font-size: 13px;
+  text-align: center;
+  padding: 12px;
+}

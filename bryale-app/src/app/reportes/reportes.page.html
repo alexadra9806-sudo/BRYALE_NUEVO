@@ -1,0 +1,94 @@
+<ion-content class="reportes-page">
+
+  <div class="header">
+    <div class="back" (click)="volverPanel()">‹</div>
+    <h1>REPORTES</h1>
+  </div>
+
+  <div class="content-box">
+
+    <div class="date-card">
+      <ion-icon name="calendar-outline" class="calendar-icon"></ion-icon>
+
+      <input
+        type="date"
+        [value]="fechaSeleccionada"
+        (change)="cambiarFecha($event)">
+    </div>
+
+    <div class="stats">
+      <div class="stat-card green">
+        <span>Ventas del Día</span>
+        <h2>S/ {{ ventasDia | number:'1.2-2' }}</h2>
+      </div>
+
+      <div class="stat-card blue">
+        <span>Productos Vendidos</span>
+        <h2>{{ productosVendidosDia }}</h2>
+      </div>
+    </div>
+
+    <div class="section-card">
+      <h3>Top 10 Productos Más Vendidos</h3>
+
+      <div class="productos-scroll" *ngIf="topProductos.length > 0">
+        <div class="producto-card" *ngFor="let producto of topProductos; let i = index">
+          <div class="posicion">{{ i + 1 }}°</div>
+
+          <img
+            *ngIf="producto.imagen"
+            [src]="producto.imagen"
+            class="foto-img"
+            alt="Producto">
+
+          <div class="foto-producto" *ngIf="!producto.imagen">
+            📦
+          </div>
+
+          <h4>{{ producto.nombre }}</h4>
+          <p>{{ producto.ventas }} vendido{{ producto.ventas === 1 ? '' : 's' }}</p>
+        </div>
+      </div>
+
+      <div class="empty" *ngIf="topProductos.length === 0">
+        No hay ventas registradas para esta fecha.
+      </div>
+    </div>
+
+    <div class="section-card">
+      <h3>Estado del Inventario</h3>
+
+      <div class="inventory">
+        <div class="status">
+          <span>Disponible</span>
+          <strong>{{ disponibles }}</strong>
+        </div>
+
+        <div class="status">
+          <span>Stock Bajo</span>
+          <strong>{{ stockBajo }}</strong>
+        </div>
+
+        <div class="status">
+          <span>Agotados</span>
+          <strong>{{ agotados }}</strong>
+        </div>
+      </div>
+    </div>
+
+    <div class="section-card">
+      <h3>Productos por Reponer</h3>
+
+      <div class="reponer-item" *ngFor="let producto of productosReponer">
+        <span>{{ producto.nombre }}</span>
+        <strong>Stock: {{ producto.cantidad }}</strong>
+      </div>
+
+      <div class="empty" *ngIf="productosReponer.length === 0">
+        No hay productos pendientes.
+      </div>
+    </div>
+
+  </div>
+
+</ion-content>

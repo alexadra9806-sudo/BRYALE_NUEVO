@@ -1,0 +1,232 @@
+.inventario-page {
+  --background: #0b4ca3;
+}
+
+.header {
+  height: 90px;
+  background: #0b4ca3;
+  position: relative;
+}
+
+.header h1 {
+  color: white;
+  text-align: center;
+  padding-top: 48px;
+  margin: 0;
+  font-size: 15px;
+  font-weight: 500;
+}
+
+.back {
+  position: absolute;
+  left: 26px;
+  top: 38px;
+  color: white;
+  font-size: 34px;
+}
+
+.content-box {
+  background: #f7f7f7;
+  min-height: calc(100vh - 90px);
+  padding: 20px;
+  border-top-left-radius: 24px;
+  border-top-right-radius: 24px;
+  border-bottom: 18px solid #0b4ca3;
+  position: relative;
+}
+
+.search-box {
+  height: 50px;
+  background: white;
+  border-radius: 16px;
+  padding: 0 16px;
+  margin-bottom: 16px;
+  display: flex;
+  align-items: center;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+}
+
+.search-box input {
+  width: 100%;
+  border: none;
+  outline: none;
+  background: transparent;
+  font-size: 15px;
+  color: #333;
+}
+
+.search-box input::placeholder {
+  color: #777;
+}
+
+.filters {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 18px;
+}
+
+.filters button {
+  flex: 1;
+  height: 40px;
+  border: none;
+  border-radius: 20px;
+  background: white;
+  color: #555;
+  font-size: 13px;
+  font-weight: 800;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.10);
+}
+
+.filters button.active {
+  background: #0b4ca3;
+  color: white;
+}
+
+.product-card {
+  background: white;
+  border-radius: 16px;
+  padding: 14px;
+  margin-bottom: 14px;
+  display: grid;
+  grid-template-columns: 78px 1fr;
+  gap: 14px;
+  align-items: center;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+}
+
+.product-image {
+  width: 78px;
+  height: 78px;
+  border-radius: 14px;
+  object-fit: cover;
+  background: #e1d0ff;
+}
+
+.product-image.placeholder {
+  background: #e1d0ff;
+}
+
+.product-info h2 {
+  margin: 0 0 6px;
+  color: black;
+  font-size: 15px;
+  font-weight: 900;
+}
+
+.product-info p {
+  margin: 3px 0;
+  color: #555;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.estado {
+  display: inline-block;
+  margin-top: 8px;
+  padding: 6px 12px;
+  border-radius: 14px;
+  font-size: 12px;
+  font-weight: 800;
+}
+
+.estado.disponible {
+  background: #e4f7e8;
+  color: #0aa354;
+}
+
+.estado.bajo {
+  background: #fff4d6;
+  color: #d49100;
+}
+
+.estado.agotado {
+  background: #ffe3e3;
+  color: #d32f2f;
+}
+
+.empty-message {
+  margin-top: 20px;
+  text-align: center;
+  color: #777;
+  font-size: 14px;
+  font-weight: 700;
+}
+.btn-reponer {
+  margin-top: 10px;
+  width: 100%;
+  height: 34px;
+  border: none;
+  border-radius: 12px;
+  background: #0b4ca3;
+  color: white;
+  font-size: 12px;
+  font-weight: 800;
+}
+
+.overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.30);
+  z-index: 10;
+}
+
+.modal-reponer {
+  position: fixed;
+  left: 20px;
+  right: 20px;
+  top: 220px;
+  background: white;
+  border-radius: 20px;
+  padding: 20px;
+  z-index: 11;
+  text-align: center;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.25);
+}
+
+.modal-reponer h3 {
+  color: #0b4ca3;
+  margin: 0 0 10px;
+}
+
+.modal-reponer p {
+  color: #222;
+  font-weight: 800;
+  margin: 0;
+}
+
+.modal-reponer span {
+  display: block;
+  color: #666;
+  margin: 8px 0 14px;
+  font-size: 13px;
+}
+
+.modal-reponer input {
+  width: 100%;
+  height: 42px;
+  border: none;
+  border-radius: 12px;
+  background: #f2f2f2;
+  padding: 0 12px;
+  margin-bottom: 12px;
+}
+
+.btn-guardar,
+.btn-cancelar {
+  width: 100%;
+  height: 42px;
+  border: none;
+  border-radius: 14px;
+  font-weight: 800;
+  margin-top: 8px;
+}
+
+.btn-guardar {
+  background: #12a85a;
+  color: white;
+}
+
+.btn-cancelar {
+  background: #e6e6e6;
+  color: #333;
+}
